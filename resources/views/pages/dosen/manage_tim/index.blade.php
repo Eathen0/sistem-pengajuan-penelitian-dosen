@@ -1,0 +1,85 @@
+@extends('layout.dosen-page')
+
+@section('content-dosen')
+<div class="main-content container-fluid">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Table</h3>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class='breadcrumb-header'>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tim</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Bordered table start -->
+    <div class="row" id="table-bordered">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-content">
+                    <!-- table bordered -->
+                    <div class="table-responsive">
+                        @if (session('success'))
+                            <div class="alert alert-success mt-3">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        <table class="table table-bordered mb-0">
+                            <thead>
+                            <tr>
+                                <th>NO</th>
+                                <th>NAMA PROPOSAL</th>
+                                <th>NAMA</th>
+                                <th>TUGAS</th>
+                                <th>STATUS</th>
+                                <th>ACTION</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($datas as $index => $data)
+                                    <tr>
+                                        <td class="text-bold-500">{{ $index + 1 }}</td>
+                                        <td>{{ $data->judul }}</td>
+                                        <td class="text-bold-500">{{ $data->nama }}</td>
+                                        <td>{{ $data->tugas }}</td>
+                                        <td>{{ $data->status }}</td>
+                                        <td>
+                                            {{-- <form onsubmit="return confirm('Apakah Anda yakin?')" action="{{ route('manage_tim.destroy', $data->id) }}" method="POST">
+                                                <a href="{{ route('manage_tim.edit', $data->id) }}" class="btn btn-warning">Edit</a>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                              </form> --}}
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td> Data Tim LItabmas Kosong</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bordered table end -->
+    </div>
+
+    <footer>
+        <div class="footer clearfix mb-0 text-muted">
+            <div class="float-start">
+                <p>2024 &copy; Voler</p>
+            </div>
+            <div class="float-end">
+                <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a href="https://saugi.me">Saugi</a></p>
+            </div>
+        </div>
+    </footer>
+@endsection
