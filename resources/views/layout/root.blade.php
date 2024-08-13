@@ -10,6 +10,8 @@
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/vendors/perfect-scrollbar/perfect-scrollbar.css") }}>
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/css/app.css") }}>
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/vendors/choices.js/choices.min.css") }}>
+   <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/vendors/simple-datatables/style.css") }}>
+   {{-- <link rel="shortcut icon" href={{ asset("assets/themes/voler-main/assets/images/favicon.svg") }}> --}}
 
    <!-- Javascript -->
    <script defer src={{ asset("assets/themes/voler-main/assets/js/feather-icons/feather.min.js") }}></script>
@@ -20,6 +22,8 @@
    <script defer src={{ asset("assets/themes/voler-main/assets/js/pages/dashboard.js") }}></script>
    <script defer src={{ asset("assets/themes/voler-main/assets/js/main.js") }}></script>
    <script defer src={{ asset("assets/themes/voler-main/assets/vendors/choices.js/choices.min.js") }}></script>
+   <script defer src={{ asset("assets/themes/voler-main/assets/vendors/simple-datatables/simple-datatables.js") }}></script>
+   <script defer src={{ asset("assets/themes/voler-main/assets/js/vendors.js") }}></script>
 
    <title>@yield('title-page', 'Sistem Pengajuan Penelitian')</title>
 </head>

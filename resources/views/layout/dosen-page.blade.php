@@ -25,7 +25,7 @@
                             </a>
                             <ul class="submenu ">  
                                 <li>
-                                    <a href="form-element-input.html">Tabel</a>
+                                    <a href="{{ route('manage_proposal.index') }}">Tabel</a>
                                 </li>
                                 <li>
                                     <a href="form-element-input-group.html">Tambah</a>

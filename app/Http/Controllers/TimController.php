@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 
 class TimController extends Controller
 {
-    public function index () {
+
+    public function index () 
+    {
         $menu = 'manage_tim';
         $submenu = 'tim_litabmas';
         $datas = tim_litabmas::join('proposals', 'tim_litabmas.id_proposal', '=' , 'proposals.id')
-        ->get(['proposals.judul', 'tim_litabmas.nama','tim_litabmas.tugas','tim_litabmas.status']);
+        ->get(['proposals.judul', 'tim_litabmas.nama','tim_litabmas.tugas','tim_litabmas.status', 'tim_litabmas.id']);
         return view('pages.dosen.manage_tim.index',compact('menu','submenu','datas'));
     }
 
@@ -57,5 +59,22 @@ class TimController extends Controller
                 ->with('error', 'There was an error creating the Tim Litabmas: ' . $e->getMessage())
                 ->withInput();
         }
+    }
+
+    public function edit(string $id)
+    {
+
+    }
+
+    public function update(Request $request)
+    {
+
+    }
+
+    public function destroy(string $id)
+    {
+        $tim = tim_litabmas::findOrFail($id);
+        $tim->delete();
+        return redirect()->route('manage_tim.index')->with('success', 'Data berhasil dihapus');
     }
 }

@@ -30,7 +30,7 @@
                                 <th>NO</th>
                                 <th>NIDN</th>
                                 <th>NAMA SKEMA</th>
-                                <th>JUDUL PROPOSAL</th>
+                                <th>JUDUL</th>
                                 <th>NAMA MITRA</th>
                                 <th>ACTION</th>
                             </tr>
@@ -38,9 +38,9 @@
                             <tbody>
                             <tr>
                                 <td class="text-bold-500">1</td>
-                                <td>UI/UX</td>
-                                <td class="text-bold-500">2024</td>
-                                <td>NASKAH JURNAL</td>
+                                <td>987654567</td>
+                                <td class="text-bold-500">UI/UX</td>
+                                <td>UBTUNG SUBAGYO</td>
                                 <td>safuenfltoownoi ytetnuoiu ytuoiyuven utnvoiuniouotp uifuib3yctibyo8i</td>
                                 <td>
                                     <a href="#">

@@ -29,7 +29,7 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <table class="table table-bordered mb-0">
+                        <table class="table table-bordered mb-0" id="table1">
                             <thead>
                             <tr>
                                 <th>NO</th>
@@ -49,12 +49,12 @@
                                         <td>{{ $data->tugas }}</td>
                                         <td>{{ $data->status }}</td>
                                         <td>
-                                            {{-- <form onsubmit="return confirm('Apakah Anda yakin?')" action="{{ route('manage_tim.destroy', $data->id) }}" method="POST">
-                                                <a href="{{ route('manage_tim.edit', $data->id) }}" class="btn btn-warning">Edit</a>
+                                            <form onsubmit="return confirm('Apakah Anda yakin?')" action="{{route('manage_tim.destroy', $data->id)}}" method="POST">
+                                                <a href="{{route('manage_tim.edit', $data->id)}}" class="btn icon icon-left btn-outline-warning"><i data-feather="edit">Edit</i></a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Hapus</button>
-                                              </form> --}}
+                                                <button type="submit" class="btn icon icon-left btn-outline-danger"><i data-feather="delete">Hapus</i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @empty
@@ -70,16 +70,15 @@
         </div>
     </div>
     <!-- Bordered table end -->
-    </div>
-
-    <footer>
-        <div class="footer clearfix mb-0 text-muted">
-            <div class="float-start">
-                <p>2024 &copy; Voler</p>
-            </div>
-            <div class="float-end">
-                <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a href="https://saugi.me">Saugi</a></p>
-            </div>
+</div>
+<footer>
+    <div class="footer clearfix mb-0 text-muted">
+        <div class="float-start">
+            <p>2024 &copy; Voler</p>
         </div>
-    </footer>
+        <div class="float-end">
+            <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a href="https://saugi.me">Saugi</a></p>
+        </div>
+    </div>
+</footer>
 @endsection
