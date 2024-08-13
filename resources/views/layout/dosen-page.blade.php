@@ -34,7 +34,7 @@
                         </li>
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i data-feather="file-text" width="20"></i> 
+                                <i data-feather="users" width="20"></i> 
                                 <span>Tim</span>
                             </a>
                             <ul class="submenu ">  
@@ -48,7 +48,7 @@
                         </li>
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i data-feather="file-text" width="20"></i> 
+                                <i data-feather="award" width="20"></i> 
                                 <span>Luaran/Capaian</span>
                             </a>
                             <ul class="submenu ">  
