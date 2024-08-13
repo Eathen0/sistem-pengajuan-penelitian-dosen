@@ -63,12 +63,45 @@ class TimController extends Controller
 
     public function edit(string $id)
     {
+        $menu = 'manage_tim';
+        $submenu = 'tim_litabmas';
+        $tim = tim_litabmas::findOrFail($id);
+        $proposals = proposal::all();
 
+        return view('pages.dosen.manage_tim.form_edit', compact('menu', 'submenu', 'tim', 'proposals'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, string $id)
     {
+        // Validate the incoming request data
+        $request->validate([
+            'id_proposal' => 'required|exists:proposals,id',
+            'nama' => 'required|string|max:255',
+            'tugas' => 'required|string|max:255',
+            'status' => 'required|string|max:50',
+        ]);
 
+        try {
+            // Find the specific record to update
+            $timLitabmas = tim_litabmas::findOrFail($id);
+            $timLitabmas->id_proposal = $request->id_proposal;
+            $timLitabmas->nama = $request->nama;
+            $timLitabmas->tugas = $request->tugas;
+            $timLitabmas->status = $request->status;
+
+            // Save the updated data to the database
+            $timLitabmas->save();
+
+            // Redirect back with a success message
+            return redirect()->route('manage_tim.index')
+                ->with('success', 'Tim Litabmas successfully updated.');
+
+        } catch (\Exception $e) {
+            // Handle any errors that may occur
+            return redirect()->back()
+                ->with('error', 'There was an error updating the Tim Litabmas: ' . $e->getMessage())
+                ->withInput();
+        }
     }
 
     public function destroy(string $id)

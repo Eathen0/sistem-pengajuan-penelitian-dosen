@@ -59,7 +59,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td> Data Tim LItabmas Kosong</td>
+                                        <td colspan="6" class="text-center"> Data Tim Litabmas Kosong</td>
                                     </tr>
                                 @endforelse
                             </tbody>
