@@ -35,7 +35,7 @@ return new class extends Migration
             $table->text('jadwal_penelitian');
             $table->text('daftar_pustaka');
             $table->enum('status', ['draf', 'submitted']);
-            $table->enum('status_approvel', ['diterima', 'ditolak']);
+            $table->enum('status_approvel', ['diterima', 'ditolak'])->nullable();
             $table->integer('nilai')->nullable();
             $table->date('tanggal_submit')->nullable();
             $table->date('approvel_date')->nullable();
