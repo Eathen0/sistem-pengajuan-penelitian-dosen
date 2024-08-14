@@ -44,11 +44,16 @@
                                 <td>{{ $data->tugas }}</td>
                                 <td>{{ $data->status }}</td>
                                 <td>
-                                    <form onsubmit="return confirm('Apakah Anda yakin?')" action="{{route('manage_tim.destroy', $data->id)}}" method="POST">
-                                        <a href="{{route('manage_tim.edit', $data->id)}}" class="btn icon icon-left btn-outline-warning"><i data-feather="edit">Edit</i></a>
+                                    <form id="delete-form-{{ $data->id }}"
+                                        onsubmit="event.preventDefault(); confirmDelete({{ $data->id }});"
+                                        action="{{ route('manage_tim.destroy', $data->id) }}" method="POST">
+                                        <a href="{{ route('manage_tim.edit', $data->id) }}"
+                                            class="btn icon icon-left btn-outline-warning"><i
+                                                data-feather="edit">Edit</i></a>
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn icon icon-left btn-outline-danger"><i data-feather="delete">Hapus</i></button>
+                                        <button type="submit" class="btn icon icon-left btn-outline-danger"><i
+                                                data-feather="delete">Hapus</i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -75,4 +80,28 @@
         </div>
     </div>
 </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        feather.replace();
+    });
+
+    function confirmDelete(id) {
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Anda tidak akan dapat mengembalikan ini!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('delete-form-' + id).submit();
+            }
+        });
+    }
+</script>
+
 @endsection

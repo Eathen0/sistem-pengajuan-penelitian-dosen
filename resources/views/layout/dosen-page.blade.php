@@ -10,64 +10,64 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class='sidebar-title'>Main Menu</li>    
-                        <li class="sidebar-item  ">
-                            <a href="" class='sidebar-link'>
+                        <li class="sidebar-item ">
+                            <a href="#" class='sidebar-link'>
                                 <i data-feather="home" width="20"></i> 
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
                         <li class='sidebar-title'>Forms &amp; Tables</li>
-                        <li class="sidebar-item  has-sub">
+                        <li class="sidebar-item has-sub {{ request()->routeIs('manage_proposal.*') ? 'active' : '' }}">
                             <a href="#" class='sidebar-link'>
-                                <i data-feather="file-text" width="20"></i> 
+                                <i data-feather="book-open" width="20"></i> 
                                 <span>Proposal</span>
                             </a>
-                            <ul class="submenu ">  
+                            <ul class="submenu {{ request()->routeIs('manage_proposal.*') ? 'active' : '' }}">  
                                 <li>
-                                    <a href="{{ route('manage_proposal.index') }}">Tabel</a>
+                                    <a href="{{ route('manage_proposal.index') }}" class="{{ request()->routeIs('manage_proposal.index') ? 'active' : '' }}">Tabel</a>
                                 </li>
                                 <li>
-                                    <a href="form-element-input-group.html">Tambah</a>
+                                    <a href="{{ route('manage_proposal.create') }}" class="{{ request()->routeIs('manage_proposal.create') ? 'active' : '' }}">Tambah</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-item  has-sub">
+                        <li class="sidebar-item has-sub {{ request()->routeIs('manage_tim.*') ? 'active' : '' }}">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="users" width="20"></i> 
                                 <span>Tim</span>
                             </a>
-                            <ul class="submenu ">  
+                            <ul class="submenu {{ request()->routeIs('manage_tim.*') ? 'active' : '' }}">  
                                 <li>
-                                    <a href="{{ route('manage_tim.index') }}">Tabel</a>
+                                    <a href="{{ route('manage_tim.index') }}" class="{{ request()->routeIs('manage_tim.index') ? 'active' : '' }}">Tabel</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('manage_tim.create') }}">Tambah</a>
+                                    <a href="{{ route('manage_tim.create') }}" class="{{ request()->routeIs('manage_tim.create') ? 'active' : '' }}">Tambah</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-item  has-sub">
+                        <li class="sidebar-item has-sub {{ request()->routeIs('manage_luaran.*') ? 'active' : '' }}">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="award" width="20"></i> 
                                 <span>Luaran/Capaian</span>
                             </a>
-                            <ul class="submenu ">  
+                            <ul class="submenu {{ request()->routeIs('manage_luaran.*') ? 'active' : '' }}">  
                                 <li>
-                                    <a href="{{ route('manage_luaran.index') }}">Tabel</a>
+                                    <a href="{{ route('manage_luaran.index') }}" class="{{ request()->routeIs('manage_luaran.index') ? 'active' : '' }}">Tabel</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('manage_luaran.create') }}">Tambah</a>
+                                    <a href="{{ route('manage_luaran.create') }}" class="{{ request()->routeIs('manage_luaran.create') ? 'active' : '' }}">Tambah</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-item  has-sub">
+                        <li class="sidebar-item has-sub {{ request()->routeIs('managedraft') ? 'active' : '' }}">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="file-text" width="20"></i> 
                                 <span>Draft</span>
                             </a>
-                            <ul class="submenu ">  
+                            <ul class="submenu {{ request()->routeIs('managedraft') ? 'active' : '' }}">  
                                 <li>
-                                    <a href="{{ route('managedraft') }}">Tabel</a>
+                                    <a href="{{ route('managedraft') }}" class="{{ request()->routeIs('managedraft') ? 'active' : '' }}">Tabel</a>
                                 </li>
                                 <li>
                                     <a href="form-element-input-group.html">Tambah</a>
