@@ -60,6 +60,20 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="file-text" width="20"></i> 
+                                <span>Draft</span>
+                            </a>
+                            <ul class="submenu ">  
+                                <li>
+                                    <a href="{{ route('managedraft') }}">Tabel</a>
+                                </li>
+                                <li>
+                                    <a href="form-element-input-group.html">Tambah</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

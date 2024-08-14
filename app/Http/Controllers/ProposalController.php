@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\proposal;
 use Illuminate\Http\Request;
 
 class ProposalController extends Controller
@@ -9,4 +10,5 @@ class ProposalController extends Controller
     public function index () {
         return view('pages.dosen.manage_proposal.index');
     }
+
 }

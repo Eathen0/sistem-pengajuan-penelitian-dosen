@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\CapaianController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ManageDraftController;
 use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\TimController;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\PengumumanController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Manager;
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
@@ -25,3 +28,5 @@ Route::delete('admin/pengumuman/{id}', [PengumumanController::class, 'destroy'])
 Route::resource('dosen/manage_proposal', ProposalController::class);
 Route::resource('dosen/manage_tim', TimController::class);
 Route::resource('dosen/manage_luaran', CapaianController::class);
+
+Route::get('dosen/manage_draft', [ManageDraftController::class,'index'])->name("managedraft");
