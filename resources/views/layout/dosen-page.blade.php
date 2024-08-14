@@ -56,7 +56,7 @@
                                     <a href="{{ route('manage_luaran.index') }}">Tabel</a>
                                 </li>
                                 <li>
-                                    <a href="form-element-input-group.html">Tambah</a>
+                                    <a href="{{ route('manage_luaran.create') }}">Tambah</a>
                                 </li>
                             </ul>
                         </li>

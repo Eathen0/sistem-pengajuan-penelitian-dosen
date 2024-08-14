@@ -18,7 +18,7 @@
         </div>
     </div>
     <!-- Bordered table start -->
-    <section class="section tim">
+    <section class="section luaran">
         <div class="card">
             <div class="card-header">
                 DATA CAPAIAN/LUARAN
