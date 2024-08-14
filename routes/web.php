@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CapaianController;
+use App\Http\Controllers\DosenController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ManageDraftController;
 use App\Http\Controllers\ProposalController;
@@ -18,3 +19,4 @@ Route::resource('dosen/manage_tim', TimController::class);
 Route::resource('dosen/manage_luaran', CapaianController::class);
 
 Route::get('dosen/manage_draft', [ManageDraftController::class,'index'])->name("managedraft");
+Route::get('/dosen',[DosenController::class,'dashboard'])->name('dashboard');
