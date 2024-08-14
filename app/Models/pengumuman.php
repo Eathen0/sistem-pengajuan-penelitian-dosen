@@ -12,6 +12,9 @@ class pengumuman extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     protected $fillable = ['tanggal_pengumuman', 'judul', 'deskripsi', 'file', 'status', 'user_id' ];
+    protected $casts = [
+        'tanggal' => 'datetime',
+    ];
     
     public function pengumuman()
     {

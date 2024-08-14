@@ -10,6 +10,11 @@ class UsersTableSeeder extends Seeder
 {
     public function run()
     {
+        $jabatan_1 = DB::table('jabatans')->insertGetId(['nama' => 'Asisten Ahli']);
+        $jabatan_2 = DB::table('jabatans')->insertGetId(['nama' => 'Rektor']);
+        $jabatan_3 = DB::table('jabatans')->insertGetId(['nama' => 'Rektor Kepala']);
+        $jabatan_4 = DB::table('jabatans')->insertGetId(['nama' => 'Guru Besar']);
+        
         // Create users with three roles
         $user1 = DB::table('users')->insertGetId([
             'nidn' => '01110111',
@@ -17,7 +22,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'user1@example.com',
             'nip' => 'test-nip-1000',
             'no_telepon' => '081234567890',
-            'jabatan_fungsional' => 'rektor',
+            'id_jabatan' => $jabatan_1,
             'rumpun' => 'Management',
             'password' => Hash::make('password'),
             'created_at' => now(),
@@ -30,7 +35,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'user2@example.com',
             'nip' => 'test-nip-2000',
             'no_telepon' => '081234567891',
-            'jabatan_fungsional' => 'guru_besar',
+            'id_jabatan' => $jabatan_2,
             'rumpun' => 'Science',
             'password' => Hash::make('password'),
             'created_at' => now(),
@@ -43,7 +48,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'user3@example.com',
             'nip' => 'test-nip-3000',
             'no_telepon' => '081234567892',
-            'jabatan_fungsional' => 'asisten_ahli',
+            'id_jabatan' => $jabatan_3,
             'rumpun' => 'Engineering',
             'password' => Hash::make('password'),
             'created_at' => now(),
@@ -57,7 +62,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'user4@example.com',
             'nip' => 'test-nip-4000',
             'no_telepon' => '081234567893',
-            'jabatan_fungsional' => 'asisten_ahli',
+            'id_jabatan' => $jabatan_4,
             'rumpun' => 'Engineering',
             'password' => Hash::make('password'),
             'created_at' => now(),
@@ -72,7 +77,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'user5@example.com',
                 'nip' => 'test-nip-5000',
                 'no_telepon' => '081234567894',
-                'jabatan_fungsional' => 'asisten_ahli',
+                'id_jabatan' => $jabatan_4,
                 'rumpun' => 'Engineering',
                 'password' => Hash::make('password'),
                 'created_at' => now(),
@@ -84,7 +89,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'user6@example.com',
                 'nip' => 'test-nip-6000',
                 'no_telepon' => '081234567895',
-                'jabatan_fungsional' => 'asisten_ahli',
+                'id_jabatan' => $jabatan_1,
                 'rumpun' => 'Engineering',
                 'password' => Hash::make('password'),
                 'created_at' => now(),
@@ -96,7 +101,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'user7@example.com',
                 'nip' => 'test-nip-7000',
                 'no_telepon' => '081234567896',
-                'jabatan_fungsional' => 'asisten_ahli',
+                'id_jabatan' => $jabatan_2,
                 'rumpun' => 'Engineering',
                 'password' => Hash::make('password'),
                 'created_at' => now(),
@@ -108,7 +113,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'user8@example.com',
                 'nip' => 'test-nip-8000',
                 'no_telepon' => '081234567897',
-                'jabatan_fungsional' => 'asisten_ahli',
+                'id_jabatan' => $jabatan_3,
                 'rumpun' => 'Engineering',
                 'password' => Hash::make('password'),
                 'created_at' => now(),
@@ -120,7 +125,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'user9@example.com',
                 'nip' => 'test-nip-9000',
                 'no_telepon' => '081234567898',
-                'jabatan_fungsional' => 'asisten_ahli',
+                'id_jabatan' => $jabatan_4,
                 'rumpun' => 'Engineering',
                 'password' => Hash::make('password'),
                 'created_at' => now(),

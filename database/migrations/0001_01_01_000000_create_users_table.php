@@ -10,12 +10,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->string('nidn', 10)->primary();
+            
+            $table->unsignedBigInteger('id_jabatan');
+            $table->foreign('id_jabatan')->references('id')->on('jabatans')->onDelete('cascade');
+
             $table->string('nama'); 
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('nip'); // Changed from integer to string
             $table->string('no_telepon'); // Changed from integer to string
-            $table->enum('jabatan_fungsional', ['asisten_ahli', 'rektor', 'rektor_kepala', 'guru_besar']);
             $table->string('rumpun');
             $table->string('password'); 
             $table->rememberToken();
@@ -37,6 +40,7 @@ return new class extends Migration
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::dropIfExists('users');
+        Schema::dropIfExists('sessions');
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 };
