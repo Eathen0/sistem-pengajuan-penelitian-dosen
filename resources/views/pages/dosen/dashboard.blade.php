@@ -1,7 +1,7 @@
 @extends('layout.dosen-page')
 
 @section('content-dosen')
-<div class="pagetitle">
+<div class="pagetitle p-3">
     <h1>Dashboard</h1>
     <nav>
         <ol class="breadcrumb">
@@ -10,8 +10,8 @@
     </nav>
 </div><!-- End Page Title -->
 
-<section class="section dashboard">
-    <h1 class="text-3xl font-semibold">
+<section class="section dashboard p-3">
+    <h1 class="text-3xl font-semibold ">
         Selamat Datang
         <span class="fw-bold">
             {{-- $userdata->nama --}}
@@ -22,18 +22,18 @@
         <div class="row">
             <div class="col-xxl-12 col-md-12">
                 <div class="card info-card" style="background-color: #f8f9fa;">
-                    <div class="card-body d-flex justify-content-between align-items-center">
-                        <div class="text-center">
-                            <h5 class="card-title">Jumlah Proposal</h5>
-                            <h6>{{ $totalProposals }}</h6>
+                    <div class="card-body d-flex justify-content-stretch align-items-center p-0">
+                        <div class="text-center bg-primary p-3 flex-grow-1" rounded>
+                            <h5 class="card-title text-white">Jumlah Proposal</h5>
+                            <h6 class="text-white">{{ $totalProposals }}</h6>
                         </div>
-                        <div class="text-center">
-                            <h5 class="card-title">Proposal Submitted</h5>
-                            <h6>{{ $submittedProposals }}</h6>
+                        <div class="text-center bg-success p-3 flex-grow-1 rounded">
+                            <h5 class="card-title text-white">Proposal Submitted</h5>
+                            <h6 class="text-white">{{ $submittedProposals }}</h6>
                         </div>
-                        <div class="text-center">
-                            <h5 class="card-title">Proposal Draft</h5>
-                            <h6>{{ $draftProposals }}</h6>
+                        <div class="text-center bg-warning p-3 flex-grow-1 rounded">
+                            <h5 class="card-title text-white">Proposal Draft</h5>
+                            <h6 class="text-white">{{ $draftProposals }}</h6>
                         </div>
                     </div>
                 </div>
@@ -62,18 +62,19 @@
             @if ($proposals->count() > 0)
                 @foreach ($proposals as $index => $proposal)
                     <div class="w-100" id="data-proposal" data-pemilik="{{ $proposal->username }}" data-namaProposal="{{ $proposal->judul }}">
-                        <div class="card p-2">
+                        <div class="card p-2 mb-3">
                             <div class="card-body">
-                                <h5 style="line-height: .3rem" class="card-title">
-                                    Data Proposal
-                                    <strong>
-                                        {{ $proposal->judul }}
-                                    </strong>
-                                </h5>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <h5 style="line-clamp: 2" class="card-title text-truncate" title="{{ $proposal->judul }}">
+                                        Data Proposal
+                                        <strong>{{ $proposal->judul }}</strong>
+                                    </h5>
+                                    <span class="badge {{ $proposal->status === 'submitted' ? 'bg-success' : 'bg-warning' }} text-uppercase">{{ $proposal->status }}</span>
+                                </div>
                                 <p style="line-height: .3rem" class="mb-4 text-black-50">Pemilik <strong>{{ $proposal->username }}</strong></p>
                                 <p style="line-height: .3rem" class="mb-4 text-black-50">NIDN <strong>{{ $proposal->user_nidn }}</strong></p>
                                 <div style="display: flex; justify-content: space-between; align-items: flex-end">
-                                    <a href="{{ route('proposal.show', $proposal->id) }}" class="btn btn-primary">Lihat</a>
+                                    <a href="{{-- route('proposal.show', $proposal->id) --}}" class="btn btn-primary">Lihat</a>
                                     <p class="text-black-50 mb-0">
                                         Terakhir Diubah
                                         <span> | {{ $proposal->updated_at }}</span>
