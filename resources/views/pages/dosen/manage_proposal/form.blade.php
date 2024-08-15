@@ -122,7 +122,7 @@
                         <!-- Daftar Pustaka -->
                         <div class="form-group">
                             <label for="daftar_pustaka">Daftar Pustaka</label>
-                            <textarea name="daftar_pustaka" id="daftar_pustaka" class="form-control"></textarea>
+                            <textarea name="daftar_pustaka" id="daftar_pustaka" class="form-control" rows="4" placeholder="Masukan daftar pusaka" required></textarea>
                         </div>
 
                         <!-- Status -->
@@ -159,10 +159,10 @@
                                 <!-- Status -->
                                 <div class="form-group">
                                     <label for="status">Status</label>
-                                    <select name="tim[0][status]" id="status" class="form-control">
-                                        <option value="">Pilih...</option>
-                                        <option value="ketua">Ketua</option>
-                                        <option value="anggota">Anggota</option>
+                                    <select class="form-select" id="status" name="status" required>
+                                        <option>Pilih...</option>
+                                        <option value="Ketua">Ketua</option>
+                                        <option value="Anggota">Anggota</option>
                                     </select>
                                 </div>
                             </div>
@@ -182,8 +182,8 @@
                                 <!-- Jenis Capaian -->
                                 <div class="form-group">
                                     <label for="jenis_capaian">Jenis Capaian</label>
-                                    <select name="capaian[0][jenis_capaian]" id="jenis_capaian" class="form-control">
-                                        <option value="HKI">Pilih...</option>
+                                    <select class="form-select" id="jenis_capaian" name="jenis_capaian" required>
+                                        <option>Pilih...</option>
                                         <option value="HKI">HKI</option>
                                         <option value="Buku Ajar">Buku Ajar</option>
                                         <option value="Naskah Jurnal">Naskah Jurnal</option>

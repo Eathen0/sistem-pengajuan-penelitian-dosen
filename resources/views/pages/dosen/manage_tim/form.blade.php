@@ -49,8 +49,8 @@
                             <label for="status">Status</label>
                             <select class="form-select" id="status" name="status" required>
                                 <option>Pilih...</option>
-                                <option>Ketua</option>
-                                <option>Anggota</option>
+                                <option value="Ketua">Ketua</option>
+                                <option value="Anggota">Anggota</option>
                             </select>
                             {{-- <p><small class="text-muted">Find helper text here for given textbox.</small></p> --}}
                         </div>

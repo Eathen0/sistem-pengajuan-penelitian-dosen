@@ -14,9 +14,6 @@ class ProposalController extends Controller
     public function index () {
         $menu = 'manage_proposal';
         $submenu = 'proposal';
-        // $datas = proposal::join('user', 'gurus.golongan_id', '=' , 'golongans.id', 'left')
-        // ->join('users', 'gurus.user_id', '=', 'users.id')
-        // ->get(['users.username AS NIP', 'golongans.golongan','golongans.pangkat','gurus.name_guru','users.email', 'gurus.id']);
         return view('pages.dosen.manage_proposal.index');
     }
 
@@ -37,20 +34,20 @@ class ProposalController extends Controller
             'user_nidn' => 'required',
             'id_skema' => 'required',
             'judul' => 'required|string|max:255',
-            'nama_mitra' => 'nullable|string|max:255',
-            'alamat_mitra' => 'nullable|string',
-            'kata_kunci' => 'nullable|string|max:255',
-            'latar_belakang' => 'nullable|string',
-            'ringkasan' => 'nullable|string',
-            'urgensi' => 'nullable|string',
-            'rumusan_masalah' => 'nullable|string',
-            'pendekatan_pemecahan_masalah' => 'nullable|string',
-            'kebaruan' => 'nullable|string',
-            'metode_penelitian' => 'nullable|string',
-            'jadwal_penelitian' => 'nullable|string',
-            'daftar_pustaka' => 'nullable|string',
-            'laporan_progres' => 'nullable|string',
-            'laporan_akhir' => 'nullable|string',
+            'nama_mitra' => 'required|string|max:255',
+            'alamat_mitra' => 'required|string',
+            'kata_kunci' => 'required|string|max:255',
+            'latar_belakang' => 'required|string',
+            'ringkasan' => 'required|string',
+            'urgensi' => 'required|string',
+            'rumusan_masalah' => 'required|string',
+            'pendekatan_pemecahan_masalah' => 'required|string',
+            'kebaruan' => 'required|string',
+            'metode_penelitian' => 'required|string',
+            'jadwal_penelitian' => 'required|string',
+            'daftar_pustaka' => 'required|string',
+            'laporan_progres' => 'required|string',
+            'laporan_akhir' => 'required|string',
             'tim.*.nama_anggota' => 'required_with:tim.*.tugas,tim.*.status',
             'tim.*.tugas' => 'required_with:tim.*.nama_anggota,tim.*.status',
             'tim.*.status' => 'required_with:tim.*.nama_anggota,tim.*.tugas',
