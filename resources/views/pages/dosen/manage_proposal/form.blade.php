@@ -131,13 +131,13 @@
                         <!-- Laporan Progres -->
                         <div class="form-group">
                             <label for="laporan_progres">Laporan Progres</label>
-                            <textarea name="laporan_progres" id="laporan_progres" class="form-control"></textarea>
+                            <input type="file" class="form-control" name="laporan_progres" id="laporan_progres">
                         </div>
 
                         <!-- Laporan Akhir -->
                         <div class="form-group">
                             <label for="laporan_akhir">Laporan Akhir</label>
-                            <textarea name="laporan_akhir" id="laporan_akhir" class="form-control"></textarea>
+                            <input type="file" class="form-control" name="laporan_akhir" id="laporan_akhir">
                         </div>
 
                         <!-- Tim Section -->
@@ -147,13 +147,13 @@
                                 <!-- Nama Anggota -->
                                 <div class="form-group">
                                     <label for="nama_anggota">Nama Anggota</label>
-                                    <input type="text" name="tim[0][nama_anggota]" id="nama_anggota" class="form-control">
+                                    <input type="text" name="tim[0][nama]" id="nama" class="form-control" placeholder="Masukan nama" required>
                                 </div>
 
                                 <!-- Tugas -->
                                 <div class="form-group">
                                     <label for="tugas">Tugas</label>
-                                    <input type="text" name="tim[0][tugas]" id="tugas" class="form-control">
+                                    <textarea name="tim[0][tugas]" id="tugas" class="form-control" rows="3" placeholder="Masukan tugas" required></textarea>
                                 </div>
 
                                 <!-- Status -->
@@ -169,6 +169,7 @@
                             <button type="button" id="add-tim" class="btn btn-secondary">Tambah Tim</button>
                         </div>
                         <br>
+
                         <!-- Capaian Section -->
                         <h3>Capaian</h3>
                         <div id="capaian-sections">
@@ -176,7 +177,10 @@
                                 <!-- Tahun -->
                                 <div class="form-group">
                                     <label for="tahun">Tahun</label>
-                                    <input type="text" name="capaian[0][tahun]" id="tahun" class="form-control">
+                                    <input type="number" class="form-control" id="tahun" name="capaian[0][tahun]"
+                                       value="{{ old('tahun') }}" placeholder="Tahun" required
+                                       min="1000" max="9999">
+                                    <div class="invalid-feedback">Masukkan tahun yang valid (4 digit).</div>
                                 </div>
 
                                 <!-- Jenis Capaian -->
@@ -193,7 +197,7 @@
                                 <!-- Indikator -->
                                 <div class="form-group">
                                     <label for="indikator">Indikator</label>
-                                    <input type="text" name="capaian[0][indikator]" id="indikator" class="form-control">
+                                    <textarea name="capaian[0][indikator]" id="indikator" class="form-control" rows="3" placeholder="Masukan indikator" required></textarea>
                                 </div>
                                 <button type="button" id="add-capaian" class="btn btn-secondary">Tambah Capaian</button>
                             </div>
