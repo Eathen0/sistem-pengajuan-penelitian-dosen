@@ -10,8 +10,8 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class='sidebar-title'>Main Menu</li>    
-                        <li class="sidebar-item ">
-                            <a href="#" class='sidebar-link'>
+                        <li class="sidebar-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                            <a href="{{ route('dashboard') }}" class='sidebar-link'>
                                 <i data-feather="home" width="20"></i> 
                                 <span>Dashboard</span>
                             </a>
