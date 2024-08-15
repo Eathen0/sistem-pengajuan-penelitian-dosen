@@ -11,7 +11,7 @@
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/css/app.css") }}>
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/vendors/choices.js/choices.min.css") }}>
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/vendors/simple-datatables/style.css") }}>
-   {{-- <link rel="shortcut icon" href={{ asset("assets/themes/voler-main/assets/images/favicon.svg") }}> --}}
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
    <!-- Javascript -->
    <script defer src={{ asset("assets/themes/voler-main/assets/js/feather-icons/feather.min.js") }}></script>
@@ -24,6 +24,7 @@
    <script defer src={{ asset("assets/themes/voler-main/assets/vendors/choices.js/choices.min.js") }}></script>
    <script defer src={{ asset("assets/themes/voler-main/assets/vendors/simple-datatables/simple-datatables.js") }}></script>
    <script defer src={{ asset("assets/themes/voler-main/assets/js/vendors.js") }}></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
    <title>@yield('title-page', 'Sistem Pengajuan Penelitian')</title>
 </head>
