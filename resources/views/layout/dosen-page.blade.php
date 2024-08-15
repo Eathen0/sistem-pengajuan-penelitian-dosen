@@ -60,7 +60,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-item has-sub {{ request()->routeIs('managedraft') ? 'active' : '' }}">
+                        <li class="sidebar-item has-sub {{ request()->routeIs('manage_draft.*') ? 'active' : '' }}">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="file-text" width="20"></i> 
                                 <span>Draft</span>
@@ -70,7 +70,7 @@
                                     <a href="{{ route('managedraft') }}" class="{{ request()->routeIs('managedraft') ? 'active' : '' }}">Tabel</a>
                                 </li>
                                 <li>
-                                    <a href="form-element-input-group.html">Tambah</a>
+                                    <a href="form-element-input-group.html">Edit</a>
                                 </li>
                             </ul>
                         </li>

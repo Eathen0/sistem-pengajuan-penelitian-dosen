@@ -22,7 +22,7 @@
                 <form action="{{ route('manage_tim.update', $tim->id) }}" method="post" class="card card-body needs-validation">
                     @csrf
                     @method('PUT')
-                    <div class="row col-md-6">
+                    <div class="row col-md-12">
                         <div class="form-group">
                             <label for="id_proposal">Judul Proposal</label>
                             <small class="text-muted">as.<i>Id Proposal</i></small>

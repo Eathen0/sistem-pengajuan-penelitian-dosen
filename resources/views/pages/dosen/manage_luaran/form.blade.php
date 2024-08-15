@@ -22,7 +22,7 @@
                 <form action="{{ route('manage_luaran.store') }}" method="post" class="card card-body needs-validation">
                     @csrf
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="id_proposal">Judul Proposal</label>
                                 <small class="text-muted">as.<i>Id Proposal</i></small>
