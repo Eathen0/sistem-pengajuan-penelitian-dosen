@@ -19,7 +19,7 @@ class DosenController extends Controller
         $submittedProposals = Proposal::where('status', 'submitted')->count();
     
         // Menghitung jumlah proposal yang draft
-        $draftProposals = Proposal::where('status', 'draft')->count();
+        $draftProposals = Proposal::where('status', 'draf')->count();
     
         // Mengambil data proposal untuk ditampilkan di tabel
         $query = Proposal::query();
