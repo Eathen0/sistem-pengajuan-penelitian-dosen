@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->string('judul', 100);
             $table->text('deskripsi');
-            $table->text('file');
+            $table->text('file')->nullable();
             $table->enum('status', ['draf', 'publish']);
             $table->timestamps();
         });

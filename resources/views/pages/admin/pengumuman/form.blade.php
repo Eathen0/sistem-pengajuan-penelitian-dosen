@@ -4,48 +4,42 @@
 <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Basic Inputs</h4>
+                <h4 class="card-title">Tambah Pengumuman</h4>
             </div>
-            
             <div class="card-body">
                 <div class="row">
-                     <form action="{{route('pengumuman.store')}}" method="post" class="row g-3 needs-validation">
+                    <form action="{{route('pengumuman.store')}}" method="post" class="row g-3 needs-validation" enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="basicInput">Tanggal Pengumuman</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Enter email">
+                                <label for="name">Tanggal Pengumuman</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal" required>
                             </div>
-
                             <div class="form-group">
-                                <label for="helpInputTop">Input text with help</label>
-                                <small class="text-muted">eg.<i>someone@example.com</i></small>
-                                <input type="text" class="form-control" id="helpInputTop">
+                                <label for="name">Judul</label>
+                                <input type="text" class="form-control" id="judul" name="judul" required>
                             </div>
-
                             <div class="form-group">
-                                <label for="helperText">With Helper Text</label>
-                                <input type="text" id="helperText" class="form-control" placeholder="Name">
-                                <p><small class="text-muted">Find helper text here for given textbox.</small></p>
+                                <label for="deskripsi">Deskripsi</label>
+                                <textarea class="form-control" required name="deskripsi" id="deskripsi" cols="30" rows="10"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="text">File</label>
+                                <input type="file" class="form-control" id="file" name="file">
+                            </div>
+                            <div class="form-group">
+                                <label for="text">Status</label>
+                                <select class="form-control" id="status" name="status" required>
+                                    <option value="">Pilih Status Pengumuman</option>
+                                    <option value="draf">Draf</option>
+                                    <option value="publish">Publish</option>
+                                </select>
+                            </div>
+                            <div class="form-group mt-4">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="disabledInput">Disabled Input</label>
-                                <input type="text" class="form-control" id="disabledInput" placeholder="Disabled Text"
-                                    disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="disabledInput">Readonly Input</label>
-                                <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
-                                    value="You can't update me :P">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="disabledInput">Static Text</label>
-                                <p class="form-control-static" id="staticInput">email@pixinvent.com</p>
-                            </div>
-                        </div>
+                    </form>
                 </div>
             </div>
         </div>

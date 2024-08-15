@@ -9,6 +9,9 @@
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/vendors/chartjs/Chart.min.css") }}>
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/vendors/perfect-scrollbar/perfect-scrollbar.css") }}>
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/css/app.css") }}>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
    <!-- Javascript -->
    <script defer src={{ asset("assets/themes/voler-main/assets/js/feather-icons/feather.min.js") }}></script>

@@ -62,15 +62,16 @@
                         </li>
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i data-feather="file-text" width="20"></i> 
-                                <span>Pengumuman</span>
+                                <i data-feather="bell" width="20"></i> 
+                                <span>Pengumuman
+                                    </span>
                             </a>
                             <ul class="submenu ">  
                                 <li>
-                                    <a href="form-element-input.html">Tabel</a>
+                                    <a href="{{route('pengumuman')}}">Tabel</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('pengumuman.form') }}">Tambah</a>
+                                    <a href="{{ route('pengumuman.create') }}">Tambah</a>
                                 </li>
                             </ul>
                         </li>

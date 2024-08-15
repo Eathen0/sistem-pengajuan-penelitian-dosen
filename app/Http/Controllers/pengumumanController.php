@@ -17,41 +17,52 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::findOrFail($id); // Use findOrFail to handle non-existent records
         return view('showPengumuman', compact('pengumuman'));
     }
-
+    public function admin(){
+         $pengumuman = Pengumuman::latest()->paginate(5);
+         return view('pages.admin.pengumuman.index', compact('pengumuman'));
+    }
 
     public function create()
     {
-        return view('pengumuman.create');
+        $menu = 'data';
+        $submenu = 'pengumuman';
+        return view('pages.admin.pengumuman.form', compact('menu','submenu'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'id_user' => 'required',
+        $data = $request->validate([
             'tanggal' => 'required|date',
-            'judul' => 'required|string|max:255',
+            'judul' => 'required|string|max:100',
             'deskripsi' => 'required|string',
-            'file' => 'nullable|string',
+            'file' => 'nullable',
             'status' => 'required|in:draf,publish',
         ]);
 
-        Pengumuman::create($request->all());
+        $data['id_user'] = '102021';
 
-        return redirect()->route('pengumuman.index')->with('success', 'Pengumuman created successfully.');
+        if ($request->hasFile('file')) {
+            $data['file'] = $request->file('file')->store('pengumuman_files', 'public');
+        }
+
+        Pengumuman::create($data);
+
+        return redirect()->route('pengumuman.admin')->with('success', 'Pengumuman created successfully.');
     }
 
     public function edit($id)
     {
+        $menu = 'pengumuman';
+        $submenu = 'pengumuman';
         $pengumuman = Pengumuman::findOrFail($id);
-        return view('pengumuman.edit', compact('pengumuman'));
+        return view('pages.admin.pengumuman.form_edit', compact('pengumuman', 'menu', 'submenu'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'id_user' => 'required',
             'tanggal' => 'required|date',
-            'judul' => 'required|string|max:255',
+            'judul' => 'required|string|max:100',
             'deskripsi' => 'required|string',
             'file' => 'nullable|string',
             'status' => 'required|in:draf,publish',
@@ -60,7 +71,7 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::findOrFail($id);
         $pengumuman->update($request->all());
 
-        return redirect()->route('pengumuman.index')->with('success', 'Pengumuman updated successfully.');
+        return redirect()->route('pengumuman')->with('success', 'Pengumuman updated successfully.');
     }
 
     public function destroy($id)
@@ -68,6 +79,6 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::findOrFail($id);
         $pengumuman->delete();
 
-        return redirect()->route('pengumuman.index')->with('success', 'Pengumuman deleted successfully.');
+        return redirect()->route('pengumuman')->with('success', 'Pengumuman deleted successfully.');
     }
 }
