@@ -12,6 +12,8 @@
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/vendors/choices.js/choices.min.css") }}>
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/vendors/simple-datatables/style.css") }}>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+   <link rel="stylesheet" href={{ asset("assets/themes/NiceAdmin/assets/vendor/quill/quill.snow.css") }}>
+   <link rel="stylesheet" href={{ asset("assets/themes/NiceAdmin/assets/vendor/quill/quill.bubble.css") }}>
 
    <!-- Javascript -->
    <script defer src={{ asset("assets/themes/voler-main/assets/js/feather-icons/feather.min.js") }}></script>
@@ -24,7 +26,15 @@
    <script defer src={{ asset("assets/themes/voler-main/assets/vendors/choices.js/choices.min.js") }}></script>
    <script defer src={{ asset("assets/themes/voler-main/assets/vendors/simple-datatables/simple-datatables.js") }}></script>
    <script defer src={{ asset("assets/themes/voler-main/assets/js/vendors.js") }}></script>
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script defer src={{ asset("assets/themes/NiceAdmin/assets/vendor/quill/quill.min.js") }}></script>
+
+   {{-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+   <script>
+   tinymce.init({
+      selector: '#dafault-editor'
+   });
+   </script> --}}
+   <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
    <title>@yield('title-page', 'Sistem Pengajuan Penelitian')</title>
 </head>
