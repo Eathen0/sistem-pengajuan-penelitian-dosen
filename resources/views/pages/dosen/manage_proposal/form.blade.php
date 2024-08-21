@@ -19,7 +19,7 @@
         </div>
         <section class="section proposal">
             <div class="col-md-12">
-                <form action="{{ route('manage_proposal.store') }}" method="post" enctype="multipart/form-data" class="card card-body needs-validation">
+                <form action="{{ route('manage_proposal.store') }}" method="post" enctype="multipart/form-data" class="card card-body">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
