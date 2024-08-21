@@ -11,7 +11,7 @@ class tim_litabmas extends Model
     protected $table = 'tim_litabmas';
     protected $primaryKey = 'id';
     public $timestamps = true;
-    protected $fillable = ["id_proposal", "nama", "tugas", "status"];
+    protected $fillable = ["id_proposal", "nama", "tugas", "status_tim"];
 
     public function proposal()
     {

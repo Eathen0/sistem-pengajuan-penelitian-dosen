@@ -49,11 +49,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="status">Status</label>
-                            <select class="form-select" id="status" name="status" required>
+                            <label for="status_tim">status_tim</label>
+                            <select class="form-select" id="status_tim" name="status_tim" required>
                                 <option value="">Pilih...</option>
-                                <option value="Ketua" {{ $tim->status == 'Ketua' ? 'selected' : '' }}>Ketua</option>
-                                <option value="Anggota" {{ $tim->status == 'Anggota' ? 'selected' : '' }}>Anggota</option>
+                                <option value="Ketua" {{ $tim->status_tim == 'Ketua' ? 'selected' : '' }}>Ketua</option>
+                                <option value="Anggota" {{ $tim->status_tim == 'Anggota' ? 'selected' : '' }}>Anggota</option>
                             </select>
                         </div>
 

@@ -42,7 +42,7 @@
                                 <td>{{ $data->judul }}</td>
                                 <td class="text-bold-500">{{ $data->nama }}</td>
                                 <td>{{ $data->tugas }}</td>
-                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->status_tim }}</td>
                                 <td>
                                     <form id="delete-form-{{ $data->id }}"
                                         onsubmit="event.preventDefault(); confirmDelete({{ $data->id }});"

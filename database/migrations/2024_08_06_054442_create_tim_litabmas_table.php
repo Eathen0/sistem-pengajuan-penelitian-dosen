@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('id_proposal')->references('id')->on('proposals')->onDelete('cascade');
             $table->string('nama',255);
             $table->text('tugas');
-            $table->enum('status',['Ketua','Anggota']);
+            $table->enum('status_tim',['Ketua','Anggota']);
             $table->timestamps();
         });
     }

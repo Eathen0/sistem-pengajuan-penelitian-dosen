@@ -19,7 +19,7 @@
         </div>
         <section class="section proposal">
             <div class="col-md-12">
-                <form action="{{ route('manage_proposal.store') }}" method="POST" class="card card-body needs-validation">
+                <form action="{{ route('manage_proposal.store') }}" method="post" enctype="multipart/form-data" class="card card-body needs-validation">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
@@ -39,6 +39,7 @@
                             <div class="form-group">
                                 <label for="id_skema">Skema</label>
                                 <select name="id_skema" id="id_skema" class="form-control">
+                                        <option>Pilih...</option>
                                     @foreach ($skemas as $skema)
                                         <option value="{{ $skema->id }}">{{ $skema->nama_skema }}</option>
                                     @endforeach
@@ -97,8 +98,7 @@
                             <!-- Rumusan Masalah -->
                             <div class="form-group">
                                 <label for="rumusan_masalah">Rumusan Masalah</label>
-                                <textarea name="rumusan_masalah" id="rumusan_masalah" class="form-control" rows="4"
-                                    placeholder="Masukan rumusan masalah" required></textarea>
+                                <textarea name="rumusan_masalah" id="rumusan_masalah" class="form-control" rows="4" placeholder="Masukan rumusan masalah" required></textarea>
                             </div>
 
                             <!-- Pendekatan Pemecahan Masalah -->
@@ -157,7 +157,7 @@
                                     <div class="form-group">
                                         <label for="nama_anggota">Nama Anggota</label>
                                         <input type="text" name="tim[0][nama]" id="nama" class="form-control"
-                                            placeholder="Masukan nama" required>
+                                            placeholder="Masukan nama anggota" required>
                                     </div>
 
                                     <!-- Tugas -->
@@ -169,8 +169,8 @@
 
                                     <!-- Status -->
                                     <div class="form-group">
-                                        <label for="status">Status</label>
-                                        <select class="form-select" id="status" name="status" required>
+                                        <label for="status_tim">Status</label>
+                                        <select class="form-select" id="status_tim" name="tim[0][status_tim]" required>
                                             <option>Pilih...</option>
                                             <option value="Ketua">Ketua</option>
                                             <option value="Anggota">Anggota</option>
@@ -197,7 +197,7 @@
                                     <!-- Jenis Capaian -->
                                     <div class="form-group">
                                         <label for="jenis_capaian">Jenis Capaian</label>
-                                        <select class="form-select" id="jenis_capaian" name="jenis_capaian" required>
+                                        <select class="form-select" id="jenis_capaian" name="capaian[0][jenis_capaian]" required>
                                             <option>Pilih...</option>
                                             <option value="HKI">HKI</option>
                                             <option value="Buku Ajar">Buku Ajar</option>
@@ -237,22 +237,22 @@
 
             timSection.innerHTML = `
             <div class="form-group">
-                <label for="nama_anggota">Nama Anggota</label>
-                <input type="text" name="tim[${timIndex}][nama_anggota]" id="nama_anggota" class="form-control">
+                <label for="tim-nama-${timIndex}">Nama Anggota</label>
+                <input type="text" name="tim[${timIndex}][nama]" id="tim-nama-${timIndex}" class="form-control" placeholder="Masukan nama anggota" required>
             </div>
             <div class="form-group">
-                <label for="tugas">Tugas</label>
-                <input type="text" name="tim[${timIndex}][tugas]" id="tugas" class="form-control">
+                <label for="tim-tugas-${timIndex}">Tugas</label>
+                <textarea name="tim[${timIndex}][tugas]" id="tim-tugas-${timIndex}" class="form-control" rows="3" placeholder="Masukan tugas" required></textarea>
             </div>
             <div class="form-group">
-                <label for="status">Status</label>
-                <select name="tim[${timIndex}][status]" id="status" class="form-select">
+                <label for="tim-status_tim-${timIndex}">Status</label>
+                <select name="tim[${timIndex}][status_tim]" id="tim-status_tim-${timIndex}" class="form-select">
                     <option>Pilih...</option>
                     <option value="ketua">Ketua</option>
                     <option value="anggota">Anggota</option>
                 </select>
             </div>
-        `;
+            `;
 
             document.getElementById('tim-sections').appendChild(timSection);
             timIndex++;
@@ -264,12 +264,13 @@
 
             capaianSection.innerHTML = `
             <div class="form-group">
-                <label for="tahun">Tahun</label>
-                <input type="text" name="capaian[${capaianIndex}][tahun]" id="tahun" class="form-control">
+                <label for="capaian-tahun-${capaianIndex}">Tahun</label>
+                <input type="number" name="capaian[${capaianIndex}][tahun]" id="capaian-tahun-${capaianIndex}" class="form-control" placeholder="Tahun" required min="1000" max="9999">
+                <div class="invalid-feedback">Masukkan tahun yang valid (4 digit).</div>
             </div>
             <div class="form-group">
-                <label for="jenis_capaian">Jenis Capaian</label>
-                <select name="capaian[${capaianIndex}][jenis_capaian]" id="jenis_capaian" class="form-select">
+                <label for="capaian-jenis_capaian-${capaianIndex}">Jenis Capaian</label>
+                <select name="capaian[${capaianIndex}][jenis_capaian]" id="capaian-jenis_capaian-${capaianIndex}" class="form-select">
                     <option>Pilih...</option>
                     <option value="HKI">HKI</option>
                     <option value="Buku Ajar">Buku Ajar</option>
@@ -277,10 +278,10 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="indikator">Indikator</label>
-                <input type="text" name="capaian[${capaianIndex}][indikator]" id="indikator" class="form-control">
+                <label for="capaian-indikator-${capaianIndex}">Indikator</label>
+                <textarea name="capaian[${capaianIndex}][indikator]" id="capaian-indikator-${capaianIndex}" class="form-control"  rows="3" placeholder="Masukan indikator" required></textarea>
             </div>
-        `;
+            `;
 
             document.getElementById('capaian-sections').appendChild(capaianSection);
             capaianIndex++;

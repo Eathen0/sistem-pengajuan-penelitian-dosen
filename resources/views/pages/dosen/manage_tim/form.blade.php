@@ -46,8 +46,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="status">Status</label>
-                            <select class="form-select" id="status" name="status" required>
+                            <label for="status_tim">status_tim</label>
+                            <select class="form-select" id="status_tim" name="status_tim" required>
                                 <option>Pilih...</option>
                                 <option value="Ketua">Ketua</option>
                                 <option value="Anggota">Anggota</option>
