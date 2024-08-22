@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class proposal extends Model
+class Proposal extends Model
 {
     use HasFactory;
 
     protected $table = 'proposals';
     protected $primaryKey = 'id';
     public $timestamps = true;
+    
 
     protected $fillable = [
         'user_nidn',
@@ -36,7 +37,33 @@ class proposal extends Model
         'approvel_date',
         'laporan_progress',
         'laporan_akhir',
+        'updated_at',
+        'created_at',
     ];
+
+    protected $dates = [
+        'tanggal_submit',
+        'approvel_date',
+        'updated_at',
+        // tanggal lainnya...
+    ];
+
+    // Status Constants
+    const STATUS_SUBMITTED = 'submitted';
+    const STATUS_ACCEPTED = 'diterima';
+    const STATUS_REJECTED = 'ditolak';
+
+    // Retrieve Statuses
+    public static function getStatuses()
+    {
+        return [
+            self::STATUS_SUBMITTED => 'Submitted',
+            self::STATUS_ACCEPTED => 'Diterima',
+            self::STATUS_REJECTED => 'Ditolak',
+        ];
+    }
+
+    
 
     public function user()
     {

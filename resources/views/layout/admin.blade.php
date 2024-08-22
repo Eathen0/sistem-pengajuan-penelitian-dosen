@@ -9,66 +9,38 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                        <li class='sidebar-title'>Main Menu</li>    
-                        <li class="sidebar-item  ">
-                            <a href="index.html" class='sidebar-link'>
-                                <i data-feather="home" width="20"></i> 
+                        <li class='sidebar-title'>Main Menu</li>
+                        <li class="sidebar-item ">
+                            <a href="{{ route('dashboard') }}"
+                                class='sidebar-link'>
+                                <i data-feather="home" width="20"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
                         <li class='sidebar-title'>Forms &amp; Tables</li>
-                        <li class="sidebar-item  has-sub">
+                        <li class="sidebar-item has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i data-feather="file-text" width="20"></i> 
-                                <span>Proposal</span>
+                                <i data-feather="bell" width="20"></i>
+                                <span>Approved Proposal
+                                </span>
                             </a>
-                            <ul class="submenu ">  
+                            <ul class="submenu">
                                 <li>
-                                    <a href="form-element-input.html">Tabel</a>
-                                </li>
-                                <li>
-                                    <a href="form-element-input-group.html">Tambah</a>
+                                    <a href="{{ route('admin.persetujuan') }}">Tabel</a>
+
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-item  has-sub">
+                        <li class="sidebar-item has-sub {{ request()->routeIs('pengumuman.*') ? 'active' : '' }}">
                             <a href="#" class='sidebar-link'>
-                                <i data-feather="file-text" width="20"></i> 
-                                <span>Tim</span>
-                            </a>
-                            <ul class="submenu ">  
-                                <li>
-                                    <a href="form-element-input.html">Tabel</a>
-                                </li>
-                                <li>
-                                    <a href="form-element-input-group.html">Tambah</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i data-feather="file-text" width="20"></i> 
-                                <span>Luaran/Capaian</span>
-                            </a>
-                            <ul class="submenu ">  
-                                <li>
-                                    <a href="form-element-input.html">Tabel</a>
-                                </li>
-                                <li>
-                                    <a href="form-element-input-group.html">Tambah</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i data-feather="bell" width="20"></i> 
+                                <i data-feather="bell" width="20"></i>
                                 <span>Pengumuman
-                                    </span>
+                                </span>
                             </a>
-                            <ul class="submenu ">  
+                            <ul class="submenu {{ request()->routeIs('pengumuman.*') ? 'active' : '' }}">
                                 <li>
-                                    <a href="{{route('pengumuman')}}">Tabel</a>
+                                    <a href="{{ route('pengumuman') }}">Tabel</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('pengumuman.create') }}">Tambah</a>
@@ -83,17 +55,20 @@
         <div id="main">
             <nav class="navbar navbar-header navbar-expand navbar-light">
                 <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
-                <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
                         {{-- account --}}
                         <li class="dropdown">
-                            <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <a href="#" data-bs-toggle="dropdown"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="avatar me-1">
-                                    <img src="/assets/themes/voler-main/assets/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                    <img src="/assets/themes/voler-main/assets/images/avatar/avatar-s-1.png" alt=""
+                                        srcset="">
                                 </div>
                                 <div class="d-none d-md-block d-lg-inline-block">Hi, Saugi</div>
                             </a>

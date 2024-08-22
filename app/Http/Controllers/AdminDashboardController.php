@@ -3,26 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\pengumuman;
+use App\Models\proposal;
 use Illuminate\Http\Request;
 
 class AdminDashboardController extends Controller
 {
-    public function index()
+   public function index()
     {
         // Ambil data user
         $userdata = auth()->user();
     
-        // Menghitung jumlah pengumuman
-        $totalPengumuman = Pengumuman::count();
+        // Menghitung jumlah proposal
+        $totalProposals = proposal::count();
     
-        // Menghitung jumlah pengumuman yang submitted
-        $submittedPengumuman = Pengumuman::where('status', 'submitted')->count();
+        // Menghitung jumlah proposal yang submitted
+        $submittedProposals = Proposal::where('status', 'submitted')->count();
     
-        // Menghitung jumlah pengumuman yang draft
-        $draftPengumuman = Pengumuman::where('status', 'draft')->count(); // Perbaikan disini
+        // Menghitung jumlah proposal yang draft
+        $draftProposals = Proposal::where('status', 'draf')->count();
     
-        // Mengambil data pengumuman untuk ditampilkan di tabel
-        $query = Pengumuman::query();
+        // Mengambil data proposal untuk ditampilkan di tabel
+        $query = Proposal::query();
     
         // Jika ada pencarian
         if (request()->has('q')) {
@@ -33,9 +34,9 @@ class AdminDashboardController extends Controller
                   });
         }
     
-        $pengumumans = $query->paginate(10);
+        $proposals = $query->paginate(10);
     
         // Mengirim data ke view
-        return view('pages.admin.dashboard', compact('userdata', 'totalPengumuman', 'submittedPengumuman', 'draftPengumuman', 'pengumumans'));
+        return view('pages.admin.dashboard', compact('userdata', 'totalProposals', 'submittedProposals', 'draftProposals', 'proposals'));
     }
-   }
+}

@@ -10,6 +10,8 @@
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/vendors/perfect-scrollbar/perfect-scrollbar.css") }}>
    <link rel="stylesheet" href={{ asset("assets/themes/voler-main/assets/css/app.css") }}>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
 
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

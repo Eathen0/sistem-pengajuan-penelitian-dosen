@@ -23,7 +23,7 @@
                 <div class="card">
                     <div class="card-content">
                         <!-- table bordered -->
-                        <div class="table-responsive">
+                        <div class="table-responsive ">
                             <table class="table table-bordered mb-0">
                                 <thead align="center">
                                     <tr>
@@ -38,11 +38,17 @@
                                 <tbody align="center">
                                     @forelse ($pengumuman as $data)
                                         <tr>
-                                            <td>{{ $data->tanggal->format('d-m-Y')}}</td>
+                                            <td>{{ $data->tanggal->format('d-m-Y') }}</td>
                                             <td>{{ $data->judul }}</td>
                                             <td>{{ $data->deskripsi }}</td>
                                             <td>
-                                                <a target="_blank" href="{{ Storage::url($data->file) }}">lihat file</a>
+                                                {{-- <a target="_blank" href="{{ Storage::url($data->file) }}">lihat file</a> --}}
+                                                @if ($data->file)
+                                                    <a target="_blank" href="{{ Storage::url($data->file) }}">Lihat file</a>
+                                                @else
+                                                Tidak ada file
+                                                @endif
+                                                
                                             </td>
                                             <td
                                                 style="display: flex; justify-content: center; align-items: center; height: 100%; padding: 50% 0;">
