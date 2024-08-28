@@ -50,7 +50,7 @@
                                         <button class="btn disabled btn-info">{{ $data->status }}</button>
                                     @endif
                                 </td>
-                                <td>{{ $data->nilai ? $data->nilai : '-' }}</td>
+                                <td>{{ $data->nilai ? $data->nilai : 'null' }}</td>
                                 <td>
                                     <form onsubmit="return confirm('Apakah Anda yakin?')" action="{{route('manage_luaran.destroy', $data->id)}}" method="POST">
                                         <a href="{{route('manage_luaran.edit', $data->id)}}" class="btn icon icon-left btn-outline-warning"><i data-feather="edit">Edit</i></a>
