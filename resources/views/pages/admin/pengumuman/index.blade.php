@@ -2,7 +2,7 @@
 
 @section('content-admin')
     <div class="main-content container-fluid">
-        <div class="page-title">
+        <div class="page-title ">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>Pengumuman</h3>
@@ -18,13 +18,13 @@
             </div>
         </div>
         <!-- Bordered table start -->
-        <div class="row" id="table-bordered">
+        <div id="table-bordered">
             <div class="col-12">
                 <div class="card">
                     <div class="card-content">
                         <!-- table bordered -->
                         <div class="table-responsive ">
-                            <table class="table table-bordered mb-0">
+                           <table class="table table-bordered mb-0">
                                 <thead align="center">
                                     <tr>
                                         <th>TANGGAL PENGUMUMAN</th>
@@ -79,6 +79,8 @@
                                     @endforelse
                                 </tbody>
                             </table>
+
+
                         </div>
                     </div>
                 </div>

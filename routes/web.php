@@ -21,13 +21,13 @@ Route::put('admin/pengumuman/{id}', [PengumumanController::class, 'update'])->na
 Route::delete('admin/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
 // route persetujuan
-// Route::get('admin/persetujuan', [PersetujuanController::class, 'showProposals'])->name('admin.persetujuan');
-// Route::put('admin/persetujuan/status/{id}', [PersetujuanController::class, 'updateStatus'])->name('admin.updateStatus');
-// Route::post('admin/persetujuan', [PersetujuanController::class, 'store'])->name('persetujuan.store');
-// Route::get('admin/persetujuan/{id}', [PersetujuanController::class, 'show'])->name('persetujuan.show');
 Route::resource('admin/persetujuan', PersetujuanController::class);
 Route::put('admin/persetujuan/status/{id}', [PersetujuanController::class, 'updateStatus'])->name('admin.updateStatus');
 Route::get('admin/persetujuan', [PersetujuanController::class, 'showProposals'])->name('admin.persetujuan');
+Route::get('/view-proposal/{id}', [PersetujuanController::class, 'show'])->name('view-proposal.index');
+Route::get('/admin/persetujuan/view/{id}', [PersetujuanController::class, 'show'])->name('admin.persetujuan.view');
+
+
 
 
 // route dashboard

@@ -6,51 +6,39 @@ use Illuminate\Http\Request;
 class PersetujuanController extends Controller
 {
     public function index(){
-    $proposals = proposal::all();
-    return view('pages.admin.persetujuan.index', compact('proposals'));
+        $proposals = Proposal::all();
+        return view('pages.admin.persetujuan.index', compact('proposals'));
     }
 
-    
     public function showProposals(){
-        
-    $proposals = Proposal::all(); // Mengambil semua proposal    
-    $proposals = proposal::where('status', proposal::STATUS_SUBMITTED)->get();
-    return view('pages.admin.persetujuan.index', compact('proposals'));
+        $proposals = Proposal::where('status', Proposal::STATUS_SUBMITTED)->get();
+        return view('pages.admin.persetujuan.index', compact('proposals'));
     }
 
     public function updateStatus(Request $request, $id)
     {
-        // Validasi hanya untuk field status
         $validatedData = $request->validate([
             'status' => 'required|in:diterima,ditolak',
         ]);
 
-        // Temukan proposal berdasarkan ID
         $proposal = Proposal::findOrFail($id);
-
-        // Perbarui status dan tanggal persetujuan
         $proposal->status_approvel = $request->input('status');
         $proposal->approvel_date = now(); // Gunakan field ini untuk menyimpan tanggal persetujuan
-
-        // Simpan perubahan
         $proposal->save();
 
-        // Redirect dengan pesan sukses
         return redirect()->route('admin.persetujuan')->with('success', 'Status proposal berhasil diperbarui.');
     }
 
-
-    function show($id){
+    public function show($id)
+    {
         $menu = 'data';
         $submenu = 'proposal';
-        $proposal = proposal::find($id);
+        $proposal = Proposal::findOrFail($id); // Mengambil data proposal berdasarkan id
         return view('pages.admin.persetujuan.view', compact('proposal', 'menu', 'submenu'));
     }
 
-     // Menyimpan data proposal baru
     public function store(Request $request)
     {
-        // Validasi data input
         $request->validate([
             'user_nidn' => 'required',
             'id_skema' => 'required',
@@ -70,10 +58,8 @@ class PersetujuanController extends Controller
             'laporan_progres' => 'required|string',
             'laporan_akhir' => 'required|string',
             'status_aprovel' => 'required|in:diterima,ditolak',
-            
         ]);
 
-        // Simpan proposal ke database
         $proposal = new Proposal();
         $proposal->user_nidn = $request->input('user_nidn');
         $proposal->id_skema = $request->input('id_skema');

@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <table class="table table-bordered mb-0">
+        <table class="table table-bordered mb-0" >
             <thead>
                 <tr>
                     <th class="no-column">No</th>

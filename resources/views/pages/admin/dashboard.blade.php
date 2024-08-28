@@ -74,7 +74,7 @@
                                 <p style="line-height: .3rem" class="mb-4 text-black-50">Pemilik <strong>{{ $proposal->username }}</strong></p>
                                 <p style="line-height: .3rem" class="mb-4 text-black-50">NIDN <strong>{{ $proposal->user_nidn }}</strong></p>
                                 <div style="display: flex; justify-content: space-between; align-items: flex-end">
-                                    <a href="{{-- route('proposal.show', $proposal->id) --}}" class="btn btn-primary">Lihat</a>
+                                    <a href="{{ route('view-proposal.index', $proposal->id) }}" class="btn btn-primary">Lihat</a>
                                     <p class="text-black-50 mb-0">
                                         Terakhir Diubah
                                         <span> | {{ $proposal->updated_at }}</span>

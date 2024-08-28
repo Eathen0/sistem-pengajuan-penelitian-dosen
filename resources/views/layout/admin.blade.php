@@ -21,8 +21,8 @@
                         <li class='sidebar-title'>Forms &amp; Tables</li>
                         <li class="sidebar-item has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i data-feather="bell" width="20"></i>
-                                <span>Approved Proposal
+                                <i data-feather="file-text" width="20"></i>
+                                <span>Persetujuan Proposal
                                 </span>
                             </a>
                             <ul class="submenu">
@@ -70,7 +70,7 @@
                                     <img src="/assets/themes/voler-main/assets/images/avatar/avatar-s-1.png" alt=""
                                         srcset="">
                                 </div>
-                                <div class="d-none d-md-block d-lg-inline-block">Hi, Saugi</div>
+                                <div class="d-none d-md-block d-lg-inline-block">My Profile</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
