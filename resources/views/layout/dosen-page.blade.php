@@ -60,7 +60,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-item has-sub {{ request()->routeIs('manage_draft.*') ? 'active' : '' }}">
+                        {{-- <li class="sidebar-item has-sub {{ request()->routeIs('manage_draft.*') ? 'active' : '' }}">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="file-text" width="20"></i> 
                                 <span>Draft</span>
@@ -73,7 +73,7 @@
                                     <a href="form-element-input-group.html">Edit</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

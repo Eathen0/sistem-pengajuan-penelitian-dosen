@@ -37,14 +37,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @forelse ($datas as $index => $data)
+                        @forelse ($datas as $index => $data)
                             <tr>
                                 <td class="text-bold-500">{{ $index + 1 }}</td>
                                 <td>{{ $data->nama_skema }}</td>
                                 <td class="text-bold-500">{{ $data->judul }}</td>
                                 <td>{{ $data->nama_mitra }}</td>
-                                <td>{{ $data->status }}</td>
-                                <td>{{ $data->nilai }}</td>
+                                <td>
+                                    @if($data->status == 'submitted')
+                                        <button class="btn disabled btn-success">{{ $data->status }}</button>
+                                    @else
+                                        <button class="btn disabled btn-info">{{ $data->status }}</button>
+                                    @endif
+                                </td>
+                                <td>{{ $data->nilai ? $data->nilai : '-' }}</td>
                                 <td>
                                     <form onsubmit="return confirm('Apakah Anda yakin?')" action="{{route('manage_luaran.destroy', $data->id)}}" method="POST">
                                         <a href="{{route('manage_luaran.edit', $data->id)}}" class="btn icon icon-left btn-outline-warning"><i data-feather="edit">Edit</i></a>
@@ -56,9 +62,9 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="6" class="text-center"> Data Capaian/Luaran Kosong</td>
+                                <td colspan="7" class="text-center"> Data Capaian/Luaran Kosong</td>
                             </tr>
-                        @endforelse --}}
+                        @endforelse
                     </tbody>
                 </table>
             </div>

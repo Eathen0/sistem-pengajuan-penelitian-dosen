@@ -151,26 +151,26 @@
 
                             <!-- Tim Section -->
                             <h3>Tim</h3>
-                            <div id="tim-sections">
-                                <div class="tim-group">
+                            <div id="tim_litabmas-sections">
+                                <div class="tim_litabmas-group">
                                     <!-- Nama Anggota -->
                                     <div class="form-group">
                                         <label for="nama_anggota">Nama Anggota</label>
-                                        <input type="text" name="tim[0][nama]" id="nama" class="form-control"
+                                        <input type="text" name="tim_litabmas[0][nama]" id="nama" class="form-control"
                                             placeholder="Masukan nama anggota" required>
                                     </div>
 
                                     <!-- Tugas -->
                                     <div class="form-group">
                                         <label for="tugas">Tugas</label>
-                                        <textarea name="tim[0][tugas]" id="tugas" class="form-control" rows="3" placeholder="Masukan tugas"
+                                        <textarea name="tim_litabmas[0][tugas]" id="tugas" class="form-control" rows="3" placeholder="Masukan tugas"
                                             required></textarea>
                                     </div>
 
                                     <!-- Status -->
                                     <div class="form-group">
                                         <label for="status_tim">Status</label>
-                                        <select class="form-select" id="status_tim" name="tim[0][status_tim]" required>
+                                        <select class="form-select" id="status_tim" name="tim_litabmas[0][status_tim]" required>
                                             <option>Pilih...</option>
                                             <option value="Ketua">Ketua</option>
                                             <option value="Anggota">Anggota</option>
@@ -178,7 +178,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" id="add-tim" class="btn btn-secondary">Tambah Tim</button>
+                            <button type="button" id="add-tim_litabmas" class="btn btn-secondary">Tambah Tim</button>
                             <br><br>
 
                             <!-- Capaian Section -->
@@ -228,25 +228,25 @@
 
     <script src="{{asset('assets/themes/NiceAdmin/assets/vendor/tinymce/tinymce.min.js')}}"></script>
     <script>
-        let timIndex = 1;
+        let tim_litabmasIndex = 1;
         let capaianIndex = 1;
 
-        document.getElementById('add-tim').addEventListener('click', function() {
-            let timSection = document.createElement('div');
-            timSection.classList.add('tim-group');
+        document.getElementById('add-tim_litabmas').addEventListener('click', function() {
+            let tim_litabmasSection = document.createElement('div');
+            tim_litabmasSection.classList.add('tim_litabmas-group');
 
-            timSection.innerHTML = `
+            tim_litabmasSection.innerHTML = `
             <div class="form-group">
-                <label for="tim-nama-${timIndex}">Nama Anggota</label>
-                <input type="text" name="tim[${timIndex}][nama]" id="tim-nama-${timIndex}" class="form-control" placeholder="Masukan nama anggota" required>
+                <label for="tim_litabmas-nama-${tim_litabmasIndex}">Nama Anggota</label>
+                <input type="text" name="tim_litabmas[${tim_litabmasIndex}][nama]" id="tim_litabmas-nama-${tim_litabmasIndex}" class="form-control" placeholder="Masukan nama anggota" required>
             </div>
             <div class="form-group">
-                <label for="tim-tugas-${timIndex}">Tugas</label>
-                <textarea name="tim[${timIndex}][tugas]" id="tim-tugas-${timIndex}" class="form-control" rows="3" placeholder="Masukan tugas" required></textarea>
+                <label for="tim_litabmas-tugas-${tim_litabmasIndex}">Tugas</label>
+                <textarea name="tim_litabmas[${tim_litabmasIndex}][tugas]" id="tim_litabmas-tugas-${tim_litabmasIndex}" class="form-control" rows="3" placeholder="Masukan tugas" required></textarea>
             </div>
             <div class="form-group">
-                <label for="tim-status_tim-${timIndex}">Status</label>
-                <select name="tim[${timIndex}][status_tim]" id="tim-status_tim-${timIndex}" class="form-select">
+                <label for="tim_litabmas-status_tim-${tim_litabmasIndex}">Status</label>
+                <select name="tim_litabmas[${tim_litabmasIndex}][status_tim]" id="tim_litabmas-status_tim-${tim_litabmasIndex}" class="form-select">
                     <option>Pilih...</option>
                     <option value="ketua">Ketua</option>
                     <option value="anggota">Anggota</option>
@@ -254,8 +254,8 @@
             </div>
             `;
 
-            document.getElementById('tim-sections').appendChild(timSection);
-            timIndex++;
+            document.getElementById('tim_litabmas-sections').appendChild(tim_litabmasSection);
+            tim_litabmasIndex++;
         });
 
         document.getElementById('add-capaian').addEventListener('click', function() {

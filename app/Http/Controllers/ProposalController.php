@@ -16,7 +16,14 @@ class ProposalController extends Controller
     {
         $menu = 'manage_proposal';
         $submenu = 'proposal';
-        return view('pages.dosen.manage_proposal.index', compact('menu', 'submenu'));
+        $datas = proposal::join('skema_penelitians', 'proposals.id_skema', '=' , 'skema_penelitians.id')
+        ->get(['proposals.user_nidn','skema_penelitians.nama_skema', 'proposals.judul','proposals.nama_mitra',
+        'proposals.alamat_mitra','proposals.kata_kunci','proposals.latar_belakang','proposals.ringkasan',
+        'proposals.urgensi','proposals.rumusan_masalah','proposals.pendekatan_pemecahan_masalah',
+        'proposals.kebaruan','proposals.metode_penelitian','proposals.jadwal_penelitian','proposals.daftar_pustaka',
+        'proposals.status','proposals.status_approvel', 'proposals.nilai','proposals.tanggal_submit',
+        'proposals.approvel_date','proposals.laporan_progress','proposals.laporan_akhir','proposals.id']);
+        return view('pages.dosen.manage_proposal.index', compact('menu', 'submenu','datas'));
     }
 
     // Method untuk menampilkan form
@@ -32,7 +39,6 @@ class ProposalController extends Controller
     public function store(Request $request)
     {
         // return $request->all();
-        // \Log::info('Data Proposal:', $request->all());
         try {
             // Validasi data
             // $request->validate([
@@ -88,9 +94,6 @@ class ProposalController extends Controller
 
             // Simpan file laporan progres
             if ($request->hasFile('laporan_progres')) {
-                // Log the file information for debugging
-                // \Log::info('Laporan Progres File:', ['file' => $request->file('laporan_progres')]);
-                
                 $file = $request->file('laporan_progres');
                 $path = $file->store('proposal/progres', 'public');
                 $proposal->laporan_progress = $path;
@@ -98,17 +101,12 @@ class ProposalController extends Controller
 
             // Simpan file laporan akhir
             if ($request->hasFile('laporan_akhir')) {
-                // Log the file information for debugging
-                // \Log::info('Laporan Akhir File:', ['file' => $request->file('laporan_akhir')]);
-
                 $file = $request->file('laporan_akhir');
                 $path = $file->store('proposal/akhir', 'public');
                 $proposal->laporan_akhir = $path;
             }
 
-
             // return ["proposal" => $proposal];
-
             $proposal->save();
 
             // Simpan data tim
@@ -137,8 +135,6 @@ class ProposalController extends Controller
 
             return redirect()->route('manage_proposal.index')->with('success', 'Proposal berhasil disimpan.');
         } catch (\Exception $e) {
-            // Log error and return a friendly message
-            // \Log::error('Error storing proposal: '.$e->getMessage());
             return ["error" => $e];
             return back()->withErrors(['msg' => 'Terjadi kesalahan saat menyimpan proposal.']);
         }
